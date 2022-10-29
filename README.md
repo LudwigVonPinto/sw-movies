@@ -1,5 +1,7 @@
 # SW Movies
 
+Para ver el sitio, ingresa a <https://ludwigvonpinto.github.io/sw-movies/>
+
 ## Página de inicio /
 Esta aplicación te enlista las películas de Star Wars, desde el Episodio I - La Amenaza Fantasta, hasta el Episdio VI - El Regreso del Jedi (ordenadas por la fecha de estreno).
 Para cada película, se muestra su nombre original, la fecha de estreno, el director y el espidio correspondiente.
