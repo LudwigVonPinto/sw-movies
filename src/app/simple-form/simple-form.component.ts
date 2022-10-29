@@ -25,7 +25,6 @@ export class SimpleFormComponent implements OnInit {
   hasMoreThan18(value: string) {
     const today = new Date()
     const bod = new Date(value);
-
     
     let years = today.getFullYear() - bod.getFullYear();
     if (years < 18) {
@@ -56,7 +55,9 @@ export class SimpleFormComponent implements OnInit {
 
   handleSubmit() {
     console.log('Valores del formulario')
-    console.log(this.nombreFormControl.getRawValue(), this.apellidoFormControl.getRawValue(), this.fechaFormControl.getRawValue());
+    console.log("Nombre", this.nombreFormControl.getRawValue())
+    console.log("Apellido", this.apellidoFormControl.getRawValue())
+    console.log("Fecha de nacimiento", this.fechaFormControl.getRawValue()._d);
     
     if (this.formGroup.valid) {
       this.formGroup.reset();

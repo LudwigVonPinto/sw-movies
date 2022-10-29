@@ -45,12 +45,15 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
 
-            <mat-error *ngIf="fechaFormControl.hasError('notOlder')">
+            <mat-error *ngIf="fechaFormControl.hasError('notOlder') && !fechaFormControl.hasError('required')">
                 No tienes más de 18 años
+            </mat-error>
+            <mat-error *ngIf="fechaFormControl.hasError('required')">
+                La fecha de nacimiento es requerida
             </mat-error>
         </mat-form-field>
     
-        <div class="full-width center margin-bottom">
+        <div class="full-width center extra-margin-bottom">
             <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Finalizar</button>
         </div>
     </form>

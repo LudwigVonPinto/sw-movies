@@ -8,6 +8,9 @@
 .margin-bottom {
     margin-bottom: 1em;
 }
+.extra-margin-bottom {
+    margin-bottom: 3em;
+}
 .center {
     text-align: center;
 }
