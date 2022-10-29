@@ -69,8 +69,15 @@
             </mat-tab>
         </mat-tab-group>
     </div>
-    <div *ngIf="error">
-        <p>Error</p>
+    <div *ngIf="error" style="margin-bottom: 2em;">
+        <mat-card>
+            <mat-card-title>Página no encontrada</mat-card-title>
+            <mat-card-subtitle>Error 404</mat-card-subtitle>
+            <mat-card-content>La película que estás buscando no existe, puede ser que se haya eliminado o que haya un error en la URL que buscas</mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" routerLink="/">Ir a la página principal</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
     
 </div>
