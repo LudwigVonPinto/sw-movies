@@ -20,6 +20,7 @@ export class MoviesListComponent implements OnInit {
         (a: any, b: any) => new Date(a.release_date).getTime() - new Date(b.release_date).getTime()
       )
     })
+    this.handleWindowResize();
   }
 
   getId(movieUrl: string) {
