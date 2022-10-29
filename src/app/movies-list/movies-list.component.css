@@ -7,3 +7,6 @@ mat-card-title a {
     width: 90%;
     margin: 0 auto;
 }
+mat-grid-list {
+    margin-bottom: 2em;
+}

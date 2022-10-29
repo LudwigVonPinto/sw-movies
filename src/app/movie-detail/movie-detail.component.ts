@@ -10,9 +10,9 @@ import { APIRequestsService } from '../apirequests.service';
 export class MovieDetailComponent implements OnInit {
 
   data: any;
-  starships: {name: string, model: string, starship_class: string}[] = [];
-  characters: {name: string, gender: string, birth_year: string}[] = [];
-  planets: {name: string, climate: string, population: string}[] = [];
+  starships: {name: string, model: string, starship_class: string, cost_in_credits: string, length: string, crew: string, passengers: string}[] = [];
+  characters: {name: string, gender: string, birth_year: string, height: string, mass: string}[] = [];
+  planets: {name: string, climate: string, population: string, terrain: string, rotation_period: string, orbital_period: string}[] = [];
   colsWidth : number = 1;
   error = false;
   constructor(private api: APIRequestsService, private route: ActivatedRoute) { }
@@ -24,11 +24,32 @@ export class MovieDetailComponent implements OnInit {
       this.fetchAllData(res.starships, res.characters, res.planets)
     },
      err => this.error = true)
-    this.colsWidth = (window.innerWidth <= 600) ? 1 : 6;
+    this.handleWindowResize()
   }
 
   handleWindowResize() {
     this.colsWidth = (window.innerWidth <= 600) ? 1 : 6;
+  }
+
+  getYearOnly(release_date: string) {
+    const date = new Date(release_date)
+    return date.getFullYear()
+  }
+
+  convertPrice(ship_cost: string) {
+    if (ship_cost === "unknown") {
+      return "Desconocido"
+    }
+    const n = parseInt(ship_cost)
+    return n.toLocaleString()
+  }
+
+  convertPopulation(population: string) {
+    if (population === "unknown") {
+      return "No se sabe cuántas"
+    }
+    const n = parseInt(population)
+    return n.toLocaleString()
   }
 
   fetchAllData(shipsUrls: string[], charactersUrls: string[], planetsUrls: string[]) {
