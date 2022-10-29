@@ -9,6 +9,7 @@ import { APIRequestsService } from '../apirequests.service';
 export class MoviesListComponent implements OnInit {
   movies: any;
   colsWidth: number = 6;
+  loading = true;
 
   constructor(private api: APIRequestsService) { }
 
@@ -21,6 +22,7 @@ export class MoviesListComponent implements OnInit {
         // En teoría no debería ser necesario, pues la API ya las regresa en ese orden
         (a: any, b: any) => new Date(a.release_date).getTime() - new Date(b.release_date).getTime()
       )
+      this.loading = false;
     })
     // Acomoda el ancho de las columnas de los cards
     this.handleWindowResize();

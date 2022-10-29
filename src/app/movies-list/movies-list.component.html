@@ -1,5 +1,9 @@
 <div class="container">
     <h2 style="color: white; text-align: center; margin: 16px 0 16px;">Lista de películas</h2>
+    <div *ngIf="loading" style="margin: 2em auto;">
+      <mat-progress-spinner color="warn" mode="indeterminate" style="margin: 0 auto;">
+    </mat-progress-spinner>
+    </div>
     <mat-grid-list [cols]="colsWidth" (window:resize)="handleWindowResize()">
         <mat-grid-tile *ngFor="let movie of movies">
             <mat-card>
