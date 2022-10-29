@@ -8,7 +8,7 @@ import { APIRequestsService } from '../apirequests.service';
 })
 export class MoviesListComponent implements OnInit {
   movies: any;
-  colsWidth: number = 1;
+  colsWidth: number = 6;
 
   constructor(private api: APIRequestsService) { }
 
