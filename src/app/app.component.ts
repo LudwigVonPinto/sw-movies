@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sw-movies';
+
+  constructor(
+    private titleService: Title
+  ) {
+
+  }
+  ngOnInit() {
+    this.titleService.setTitle("Star Wars Movies API");
+  }
 }

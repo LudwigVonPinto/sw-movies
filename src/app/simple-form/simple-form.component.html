@@ -1,0 +1,58 @@
+<div class="container">
+    <div style="margin: 1em 0;">
+        <a mat-mini-fab color="primary" aria-label="Back" routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+        </a>
+    </div>
+    
+    <h2 class="center" style="color: white;">Formulario</h2>
+
+    <form (submit)="handleSubmit()" [formGroup]="formGroup">
+        <mat-form-field class="full-width margin-bottom" appearance="fill" color="accent">
+          <mat-label>Nombre(s)</mat-label>
+          <input matInput [formControl]="nombreFormControl" required maxlength="50" [value]="nombreFormControl.value">
+
+          <mat-error *ngIf="nombreFormControl.hasError('pattern') && !nombreFormControl.hasError('required')">
+            El nombre no puede contener números ni caracteres especiales
+          </mat-error>
+          <mat-error *ngIf="nombreFormControl.hasError('maxLength') && !nombreFormControl.hasError('required')">
+            El nombre no puede contener más de 50 caracteres
+          </mat-error>
+          <mat-error *ngIf="nombreFormControl.hasError('required')">
+            El nombre es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="full-width margin-bottom" appearance="fill" color="accent">
+            <mat-label>Apellido(s)</mat-label>
+            <input matInput [formControl]="apellidoFormControl" required maxlength="50" [value]="apellidoFormControl.value">
+
+            <mat-error *ngIf="apellidoFormControl.hasError('pattern') && !apellidoFormControl.hasError('required')">
+                El apellido no puede contener números ni caracteres especiales
+            </mat-error>
+            <mat-error *ngIf="apellidoFormControl.hasError('maxLength') && !apellidoFormControl.hasError('required')">
+                El apellido no puede contener más de 50 caracteres
+            </mat-error>
+            <mat-error *ngIf="apellidoFormControl.hasError('required')">
+                El apellido es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="margin-bottom">
+            <mat-label>Fecha de cumpleaños</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="fechaFormControl" required>
+            <mat-hint>DD/MM/AAAA</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+
+            <mat-error *ngIf="fechaFormControl.hasError('notOlder')">
+                No tienes más de 18 años
+            </mat-error>
+        </mat-form-field>
+    
+        <div class="full-width center margin-bottom">
+            <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Finalizar</button>
+        </div>
+    </form>
+</div>
+  

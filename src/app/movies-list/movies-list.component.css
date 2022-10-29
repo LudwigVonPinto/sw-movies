@@ -1,0 +1,9 @@
+mat-card-title a {
+    cursor: pointer;
+    text-decoration: inherit;
+    color: inherit
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
