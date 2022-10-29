@@ -10,10 +10,13 @@ Si haces clic en el nombre de la película o en el botón `Detalles`, se mostrar
 
 # Página secundaria /form
 
+Para ver el sitio, ingresa a <https://ludwigvonpinto.github.io/sw-movies/form>
+
 En esta ruta se encuentra un formulario sencillo para que ingreses los siguientes datos:
 1. Nombre(s). Solo se permiten **letras y espacios**. Tamaño máximo de 50 caracteres.
 2. Apellido(s). Solo se permiten **letras y espacios**. Tamaño máximo de 50 caracteres.
 3. Fecha de nacimiento. Con formato **DD/MM/AAAA** (día/mes/año). Solo se permiten personas mayores a 18 años (desde el día actual).
 
+Una vez validado todos los datos, se habilitará el botón `Finalizar` y se mostrarán los datos ingresados en la consola. Finalmente se reseteará el formulario.
 
 _Hecho con Angular 14.2.7_
