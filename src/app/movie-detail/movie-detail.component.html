@@ -13,6 +13,7 @@
                   <p>Dirigida por <b>{{data.director}}</b></p>
                   <p>Episodio {{data.episode_id}}</p>
                   <p>Producida por {{data.producer}}</p>
+                  <p>Se estrenó el día {{getCustomDate(data.release_date)}}</p>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -25,7 +26,7 @@
                             <mat-card-subtitle>{{ship.starship_class}}</mat-card-subtitle>
                             <mat-card-content>
                                 <p>Modelo {{ship.model}}</p>
-                                <p>Esta nave tiene una capacidad para {{ship.passengers}} pasajeros y {{ship.crew}} de tripulación</p>
+                                <p>{{getCapacityText(ship.passengers,ship.crew)}}</p>
                                 <mat-chip-list>
                                     <mat-chip color="accent" selected>${{convertPrice(ship.cost_in_credits)}}</mat-chip>
                                     <mat-chip color="accent" selected>{{ship.length}}m</mat-chip>
@@ -40,12 +41,12 @@
                     <mat-grid-tile *ngFor="let character of characters">
                         <mat-card >
                             <mat-card-title>{{character.name}}</mat-card-title>
-                            <mat-card-subtitle>{{character.gender}}</mat-card-subtitle>
+                            <mat-card-subtitle>{{getGenderText(character.gender)}}</mat-card-subtitle>
                             <mat-card-content>
-                              <p>Nació {{character.birth_year}}</p>
+                              <p>{{getBODText(character.birth_year)}}</p>
                               <mat-chip-list>
-                                <mat-chip color="accent" selected>{{(character.height)}}cm</mat-chip>
-                                <mat-chip color="accent" selected>{{character.mass}}Kg</mat-chip>
+                                <mat-chip *ngIf="character.height !== 'unknown'" color="accent" selected>{{(character.height)}}cm</mat-chip>
+                                <mat-chip *ngIf="character.mass !== 'unknown'" color="accent" selected>{{character.mass}}Kg</mat-chip>
                             </mat-chip-list>
                             </mat-card-content>
                         </mat-card>

@@ -52,6 +52,45 @@ export class MovieDetailComponent implements OnInit {
     return n.toLocaleString()
   }
 
+  getBODText(bod: string) {
+    if (bod === "unknown") {
+      return "No se sabe su fecha de nacimiento"
+    }
+    return "Nació el " + bod
+  }
+
+  getCapacityText(passengers: string, crew: string){
+    let text = "Esta nave tiene una capacidad "
+    if (passengers === "unknown") {
+      text += "desconocida para pasajeros "
+    }
+    else {
+      text += "para " + passengers + " pasajeros "
+    }
+    if (crew === "unknown") {
+      text += "y desconocida para tripulación"
+    }
+    else {
+      text += "y " + crew + " de tripulación"
+    }
+    return text
+  }
+
+  getGenderText(gender: string) {
+    if (gender === "unknown") return "Género desconocido"
+    if (gender === "male") return "Hombre"
+    if (gender === "female") return "Mujer"
+    if (gender === "n/a" || gender === "none") return "Sin género"
+    if (gender === "hermaphrodite") return "Hermafrodita"
+    return gender
+  }
+
+  getCustomDate(release_date: string) {
+    const date = new Date(release_date)
+    // tiene que ser UTC para que no cambie el día
+    return new Intl.DateTimeFormat('es-MX', {month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC'}).format(date) // 10 de mayo de 1977
+  }
+
   fetchAllData(shipsUrls: string[], charactersUrls: string[], planetsUrls: string[]) {
     shipsUrls.forEach(url => {
       this.api.getStarship(url).subscribe((res: any) => {
