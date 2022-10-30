@@ -3,7 +3,7 @@
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .center {
@@ -14,4 +14,7 @@ mat-toolbar img {
   float: left;
   position: absolute;
   top: 0;
+}
+mat-menu {
+  z-index: 9999;
 }

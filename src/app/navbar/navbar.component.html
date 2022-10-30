@@ -1,6 +1,30 @@
-    <mat-toolbar color="primary">
-      <a routerLink="/">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Star_Wars_Logo..png?20100627124842" height="60px">
-      </a>
-      <span class="center">Star Wars Movies</span>
-    </mat-toolbar>
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="linksMenu" aria-label="Menu principal">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Star_Wars_Logo..png?20100627124842" height="60px">
+  </a>
+  <span class="center">Star Wars Movies</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu secundario">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #linksMenu="matMenu">
+  <button mat-menu-item routerLink="/">
+    <mat-icon>home</mat-icon>
+    <span>Inicio</span>
+  </button>
+  <button mat-menu-item routerLink="/form">
+    <mat-icon>assignment</mat-icon>
+    <span>Formulario</span>
+  </button>
+</mat-menu>
+
+<mat-menu #menu="matMenu">
+  <a mat-menu-item href="https://github.com/LudwigVonPinto/sw-movies" target="_blank" rel="noopener noreferrer">
+    <mat-icon>open_in_new</mat-icon>
+    <span>Código fuente</span>
+  </a>
+</mat-menu>
